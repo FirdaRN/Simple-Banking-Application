@@ -38,8 +38,6 @@
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item">Account Number = @yield('user')</a>
-            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href='{{url("/logout")}}' data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>
@@ -54,23 +52,8 @@
         <li class="nav-item">
           <a class="nav-link" href='{{url("/")}}'>
             <i class="fas fa-fw fa-money-check-alt"></i>
-            <span>Mutation</span>
+            <span>Report</span>
           </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/deposit')}}">
-            <i class="fas fa-fw fa-hand-holding-usd"></i>
-            <span>Deposit</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/withdraw')}}">
-            <i class="fas fa-fw fa-dollar-sign"></i>
-            <span>Withdraw</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/transfer')}}">
-            <i class="fas fa-fw fa-exchange-alt"></i>
-            <span>Transfer</span></a>
         </li>
       </ul>
 
