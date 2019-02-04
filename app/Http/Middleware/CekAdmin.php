@@ -16,27 +16,10 @@ class CekAdmin
      */
     public function handle($request, Closure $next)
     {
-        // $user = \App\User::where('email', $request->email)->first();
-        // if ($user['admin'] == '1') {
-        //     return redirect('admin');
-        // } elseif ($user['admin'] == '0') {
-        //     return redirect('mutation');
-        // }
-        // if ((!Auth::guest()) && (Auth::user()->admin==1))
-        // {
-        //     return $next($request);
-        // }
-        // return redirect('/');
-
-        $user = Auth::user();
-
-        if ($user && $user->admin != $admin) {
-            
-            return App::abort(Auth::check() ? 403 : 401, Auth::check() ? 'Forbidden' : 'Unauthorized');
-            //return redirect()->back();
-            
-        }
-
-        return $next($request);        
+        if (Auth::user()->admin==1) {
+            return $next($request); 
+        } else {
+            return redirect('/mutation');
+        }     
     }
 }

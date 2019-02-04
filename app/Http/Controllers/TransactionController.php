@@ -90,7 +90,7 @@ class TransactionController extends Controller
 	{
 		$userpengirim=Auth::user();
 		$akunpengirim=Account::where('customer_id', $userpengirim->id)->first();
-		$akunpenerima=Account::where('customer_id', $request->input('accountnumber'))->first();
+		$akunpenerima=Account::where('account_number', $request->input('accountnumber'))->first();
 		$userpenerima=User::where('id', $akunpenerima->customer_id)->first();
 		$lastamountpengirim=Transaction::orderBy('created_at', 'desc')->where('account', '=', $akunpengirim->account_number)->first();
 		$lastamountpenerima=Transaction::orderBy('created_at', 'desc')->where('account', '=', $akunpenerima->account_number)->first();

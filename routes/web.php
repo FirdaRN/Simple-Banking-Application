@@ -10,12 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::post('/login', 'Auth\LoginController@login')->middleware('cekadmin');
 Auth::routes();
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout')->middleware('auth');
 
 
-	Route::get('/', 'TransactionController@index')->name('mutation');
+	Route::get('/mutation', 'TransactionController@index')->name('mutation');
 	Route::get('/deposit', 'TransactionController@createdeposit')->name('deposit');
 	Route::get('/withdraw', 'TransactionController@createwithdraw')->name('withdraw');
 	Route::get('/transfer', 'TransactionController@createtransfer')->name('transfer');	
@@ -24,4 +25,4 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 	Route::post('/withdraw/store', 'TransactionController@storewithdraw')->name('withdraw_store');
 	Route::post('/transfer/store', 'TransactionController@storetransfer')->name('transfer_store');
 
-	Route::get('/admin', 'AdminController@index')->name('admin');
+	Route::get('/', 'AdminController@index')->name('admin');
